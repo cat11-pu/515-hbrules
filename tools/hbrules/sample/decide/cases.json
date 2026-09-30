@@ -1,0 +1,50 @@
+{
+  "templates": [
+    {
+      "name": "card",
+      "source": "<div class=\"card\">\n<h2>{{title}}</h2>\n<p>{{site.name}} / {{nope}}</p>\n<a href=\"{{site.url}}\">go</a>\n{{{title}}}\n{{#posts}}\n<li>{{title}} at {{url}} ({{../site.name}})</li>\n{{/posts}}\n{{^empty}}\n<li>none</li>\n{{/empty}}\n{{shout site.name}}\n{{link_to site.url}}\n{{{shout site.name}}}\n{{#wrap}}<b>{{title}}</b>{{/wrap}}\n</div>\n"
+    },
+    {
+      "name": "list",
+      "source": "<ul>\n{{#posts}}\n<li>{{title}}</li>\n{{/posts}}\n</ul>\n<p>{{site.name}} / {{{site.name}}}</p>\n"
+    }
+  ],
+  "helpers": [
+    {
+      "name": "shout",
+      "kind": "value",
+      "output": "escaped",
+      "template": "HELLO <{1}>"
+    },
+    {
+      "name": "link_to",
+      "kind": "value",
+      "output": "raw",
+      "template": "<a href=\"{1}\">Hello</a>"
+    },
+    {
+      "name": "wrap",
+      "kind": "block",
+      "output": "escaped",
+      "template": "<div class=\"w\">{content}</div>"
+    }
+  ],
+  "context": {
+    "title": "Go & <b>bold</b>",
+    "site": {
+      "name": "murray & co",
+      "url": "/x?a=1&b=2"
+    },
+    "posts": [
+      {
+        "title": "Hello <world>",
+        "url": "/hello"
+      },
+      {
+        "title": "A&B",
+        "url": "/ab"
+      }
+    ],
+    "empty": []
+  }
+}

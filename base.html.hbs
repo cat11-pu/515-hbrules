@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{#yield "title"}}FOO{{/yield}}</title>
+  </head>
+  <body>
+    func w/ params: {{fp foo}}
+    traversed?: {{foo2.bar}}
+    {{#yield "body"}}booody {{foo}}{{/yield}}
+  </body>
+</html>
+
